@@ -8,7 +8,7 @@ import java.awt.geom.Rectangle2D;
 
 public class Key extends InteractableObject {
 
-    private static final BufferedImage image = loadImage("/images/key.png");
+    public static final BufferedImage image = loadImage("/images/key.png");
 
     private final int pinCode;
 

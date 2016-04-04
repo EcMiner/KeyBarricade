@@ -37,7 +37,6 @@ public class LevelLoader {
 
                 ArrayList<Tile> tiles = new ArrayList<>();
                 JsonArray jsonTiles = obj.get("tiles").getAsJsonArray();
-                System.out.println("Jsontiles: " + jsonTiles.size());
                 Tile startField = null;
                 for (JsonElement element : jsonTiles) {
                     if (element.isJsonObject()) {
@@ -49,7 +48,6 @@ public class LevelLoader {
                             int y = jsonTile.get("y").getAsInt();
 
                             String type = jsonTile.get("type").getAsString().toLowerCase();
-                            System.out.println("Type: " + type);
                             Tile tile;
                             switch (type) {
                                 case "wall":
@@ -83,7 +81,6 @@ public class LevelLoader {
                     }
                 }
                 if (startField != null) {
-                    System.out.println("Not empty tiles: " + tiles.size());
                     for (int x = 0; x < horizontalTiles; x++) {
                         for (int y = 0; y < verticalTiles; y++) {
                             boolean tileExists = false;

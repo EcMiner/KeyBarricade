@@ -15,12 +15,14 @@ public class PlayField extends JPanel {
     private final ArrayList<Tile> tiles;
     private final Tile startTile;
     private final Player player;
+    private boolean finished;
 
     public PlayField(int horizontalTiles, int verticalTiles, ArrayList<Tile> tiles, Tile startTile) {
         this(horizontalTiles, verticalTiles, tiles, currentId++, startTile);
     }
 
     private PlayField(int horizontalTiles, int verticalTiles, ArrayList<Tile> tiles, int id, Tile startTile) {
+        setLayout(null);
         setSize(600, 600);
         this.horizontalTiles = horizontalTiles;
         this.verticalTiles = verticalTiles;
@@ -28,24 +30,28 @@ public class PlayField extends JPanel {
         this.tiles = tiles;
         this.startTile = startTile;
         this.player = new Player(startTile);
-        startTile.findNeighbours(tiles);
         for (Tile tile : tiles) {
             tile.findNeighbours(tiles);
             tile.setSize((getWidth() / horizontalTiles), (getWidth() / horizontalTiles));
             tile.setLocation(tile.getLocationX() * (getWidth() / horizontalTiles), tile.getLocationY() * (getWidth() / horizontalTiles));
             add(tile);
-            System.out.println(tile.getX() + "," + tile.getY());
         }
         add(player);
+        System.out.println(startTile.getLocationX() + "," + startTile.getLocationY());
         repaint();
     }
 
     public PlayField clone() {
         ArrayList<Tile> clonedTiles = new ArrayList<>();
+        Tile startTile = null;
         for (Tile tile : tiles) {
-            clonedTiles.add(tile.clone());
+            Tile cloned = tile.clone();
+            clonedTiles.add(cloned);
+            if (tile.getX() == this.startTile.getX() && tile.getY() == this.startTile.getY()) {
+                startTile = cloned;
+            }
         }
-        PlayField cloned = new PlayField(horizontalTiles, verticalTiles, clonedTiles, id, startTile.clone());
+        PlayField cloned = new PlayField(horizontalTiles, verticalTiles, clonedTiles, id, startTile);
         return cloned;
     }
 
@@ -70,7 +76,6 @@ public class PlayField extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-
         int cubeSize = getWidth() / horizontalTiles;
         g.setColor(Color.BLACK);
 
@@ -83,6 +88,12 @@ public class PlayField extends JPanel {
         }
         g.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight());
         g.drawLine(0, getHeight() - 1, getWidth(), getHeight() - 1);
+
+        /*for (Tile tile : tiles) {
+         tile.resize(cubeSize);
+         tile.setLocation(tile.getLocationX() * cubeSize, tile.getLocationY() * cubeSize);
+         }
+         player.resize(cubeSize);*/
     }
 
     /**
@@ -95,4 +106,11 @@ public class PlayField extends JPanel {
         return player;
     }
 
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
 }

@@ -14,7 +14,6 @@ public abstract class Tile extends JComponent {
     public Tile(int x, int y) {
         this.locationX = x;
         this.locationY = y;
-        setOpaque(true);
     }
 
     public int getLocationX() {
@@ -30,7 +29,6 @@ public abstract class Tile extends JComponent {
 
     public void resize(int cubeSize) {
         // TODO Resize shit
-        System.out.println("Cube size: " + cubeSize);
         setSize(cubeSize, cubeSize);
         repaint();
     }
@@ -47,7 +45,6 @@ public abstract class Tile extends JComponent {
                 neighbours.put(Direction.UP, tile);
             }
         }
-        System.out.println("Neighbours: " + neighbours.size());
     }
 
     public abstract Tile clone();
