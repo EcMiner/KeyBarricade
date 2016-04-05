@@ -35,8 +35,8 @@ public class LevelLoader {
             JsonObject obj = parser.parse(new InputStreamReader(input)).getAsJsonObject();
 
             if (obj.has("playfieldWidth") && obj.has("playfieldHeight") && (obj.has("tiles") && obj.get("tiles").isJsonArray())) {
-                int horizontalTiles = obj.get("playfieldWidth").getAsInt();
-                int verticalTiles = obj.get("playfieldHeight").getAsInt();
+                int horizontalTiles = Math.max(1, obj.get("playfieldWidth").getAsInt());
+                int verticalTiles = Math.max(1, obj.get("playfieldHeight").getAsInt());
 
                 ArrayList<Tile> tiles = new ArrayList<>();
                 JsonArray jsonTiles = obj.get("tiles").getAsJsonArray();

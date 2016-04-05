@@ -1,0 +1,9 @@
+{
+    "playfieldHeight": 10,
+    "playfieldWidth": 10,
+    "tiles": {
+        "x": 0,
+        "y": 0,
+        "type": "WALL"
+    }
+}
