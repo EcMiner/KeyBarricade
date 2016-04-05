@@ -21,6 +21,17 @@ public class Player extends JComponent {
         setImage(Direction.DOWN);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj instanceof Player) {
+            Player player2 = (Player) obj;
+            return player2.currentTile.equals(this.currentTile)
+                    && ((this.key == null && player2.key == null) || this.key.equals(player2.key))
+                    && this.currentImage == player2.currentImage;
+        }
+        return false;
+    }
+
     public void setImage(Direction direction) {
         switch (direction) {
             case LEFT:
