@@ -6,6 +6,14 @@ public class Corridor extends Tile {
 
     private InteractableObject interactableObject;
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Corridor) {
+            Corridor corridor2 = (Corridor) obj;
+            return ((Tile) obj).equals((Tile) this) && ((corridor2.interactableObject == null && this.interactableObject == null) || corridor2.getInteractableObject().equals(this.getInteractableObject()));
+        }
+        return false;
+    }
     public Corridor(int x, int y) {
         super(x, y);
     }

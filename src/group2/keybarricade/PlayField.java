@@ -113,4 +113,14 @@ public class PlayField extends JPanel {
     public void setFinished(boolean finished) {
         this.finished = finished;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof PlayField) {
+            PlayField playField2 = (PlayField) obj;
+            return playField2.getId() == getId() && playField2.horizontalTiles == this.horizontalTiles
+                    && playField2.verticalTiles == this.verticalTiles;
+        }
+        return false;
+    }
 }

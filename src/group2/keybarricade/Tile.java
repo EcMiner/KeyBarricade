@@ -10,7 +10,16 @@ public abstract class Tile extends JComponent {
     private final int locationX;
     private final int locationY;
     private final HashMap<Direction, Tile> neighbours = new HashMap<>();
-
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Tile) {
+            Tile tile2 = (Tile) obj;
+            return tile2.locationX == this.locationX && tile2.locationY == this.locationY;
+        }
+        return false;
+    }
+    
     public Tile(int x, int y) {
         this.locationX = x;
         this.locationY = y;
