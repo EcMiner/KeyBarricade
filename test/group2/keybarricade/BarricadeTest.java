@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package group2.keybarricade;
 
-import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,10 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author BlackStar
- */
 public class BarricadeTest {
 
     public BarricadeTest() {
@@ -60,24 +50,12 @@ public class BarricadeTest {
         Barricade instance = new Barricade(333);
         boolean expResult = true;
         boolean result = instance.keyFits(key);
-        
+
         Key key2 = new Key(133);
         boolean expResult2 = false;
         boolean result2 = instance.keyFits(key2);
         assertEquals(expResult, result);
         assertEquals(expResult2, result2);
-    }
-
-    /**
-     * Test of paint method, of class Barricade.
-     */
-    //@Test
-    public void testPaint() {
-        System.out.println("paint");
-        Graphics g = null;
-        int cubeSize = 0;
-        Barricade instance = null;
-        instance.paint(g, cubeSize);
     }
 
 }

@@ -30,6 +30,7 @@ public class MenuBar extends JMenuBar {
         add(levelSelector);
 
         setFocusable(false);
+        MenuScroller.setScrollerFor(levelSelector, 20);
     }
 
     private class ResetListener implements ActionListener {

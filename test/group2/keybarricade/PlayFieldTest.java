@@ -1,6 +1,6 @@
 package group2.keybarricade;
 
-import java.awt.Graphics;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,110 +35,62 @@ public class PlayFieldTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of clone method, of class PlayField.
-     */
     @Test
     public void testClone() {
-        System.out.println("clone");
         PlayField instance = testField;
         PlayField expResult = testField;
         PlayField result = instance.clone();
 
-        assertEquals(expResult, result);
+        assertEquals("#clone - Normal clone test", expResult, result);
     }
 
-    /**
-     * Test of getId method, of class PlayField.
-     */
     @Test
     public void testGetId() {
-        System.out.println("getId");
         PlayField instance = testField;
         int expResult = 0;
         int result = instance.getId();
-        assertEquals(expResult, result);
+        assertEquals("#getId - Normal equals check", expResult, result);
     }
 
-    /**
-     * Test of resizeField method, of class PlayField.
-     */
     @Test
     public void testResizeField1() {
-        System.out.println("resizeField");
         int frameWidth = 500;
         int frameHeight = 500;
         PlayField instance = testField;
         instance.resizeField(frameWidth, frameHeight);
-        if (instance.getWidth() != frameWidth && instance.getHeight() != frameHeight) {
-            fail("Resize did not work");
-        }
+
+        assertEquals("#resize - Normal resize", frameWidth, instance.getWidth());
+        assertEquals("#resize - Normal resize", frameHeight, instance.getHeight());
     }
-    
+
     @Test
     public void testResizeField2() {
-        System.out.println("resizeField");
         int frameWidth = -100;
         int frameHeight = -100;
         PlayField instance = testField;
         instance.resizeField(frameWidth, frameHeight);
-        if (instance.getWidth() == frameWidth && instance.getHeight() == frameHeight) {
-            fail("Resize did not work");
-        }
+
+        assertNotSame("#resize - Negative size", frameWidth, instance.getWidth());
+        assertNotSame("#resize - Negative size", frameHeight, instance.getHeight());
     }
 
-    /**
-     * Test of paint method, of class PlayField.
-     */
-    //@Test
-    public void testPaint() {
-        System.out.println("paint");
-        Graphics g = null;
-        PlayField instance = null;
-        instance.paint(g);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPlayer method, of class PlayField.
-     */
-    @Test
-    public void testGetPlayer() {
-        System.out.println("getPlayer");
-        PlayField instance = testField;
-        Player expResult = null;
-        Player result = instance.getPlayer();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of isFinished method, of class PlayField.
-     */
-    @Test
-    public void testIsFinished() {
-        System.out.println("isFinished");
-        PlayField instance = null;
-        boolean expResult = false;
-        boolean result = instance.isFinished();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setFinished method, of class PlayField.
-     */
     @Test
     public void testSetFinished() {
-        System.out.println("setFinished");
         boolean finished = false;
-        PlayField instance = null;
+        PlayField instance = testField;
         instance.setFinished(finished);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        assertEquals("#setFinished - Normal set test", finished, instance.isFinished());
+    }
+
+    @Test
+    public void testConstructor() {
+        PlayField playField = new PlayField(-1, -1, new ArrayList<>(), new Corridor(0, 0));
+
+        int expResult = 1;
+
+        assertEquals("#Constructor - Negative horizontal and vertical tiles", expResult, playField.getVerticalTiles());
+        assertEquals("#Constructor - Negative horizontal and vertical tiles", expResult, playField.getHorizontalTiles());
     }
 
 }

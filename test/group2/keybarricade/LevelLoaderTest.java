@@ -154,7 +154,7 @@ public class LevelLoaderTest {
     public void testLoadLevel9() {
         InputStream input = getInputStream("/testfiles/outofbounds.json");
         LevelLoader instance = new LevelLoader();
-        boolean expResult = true;
+        boolean expResult = false;
 
         PlayField result = instance.loadLevel(input);
         boolean hasOutOfBounds = false;
