@@ -13,7 +13,7 @@ public class EndField extends InteractableObject {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof EndField) {
+        if (obj != null && obj instanceof EndField) {
             return true;
         }
         return false;

@@ -116,10 +116,18 @@ public class PlayField extends JPanel {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof PlayField) {
+        if (obj != null && obj instanceof PlayField) {
             PlayField playField2 = (PlayField) obj;
-            return playField2.getId() == getId() && playField2.horizontalTiles == this.horizontalTiles
-                    && playField2.verticalTiles == this.verticalTiles;
+            if (this.tiles.size() == playField2.tiles.size()) {
+                for (int i = 0; i < this.tiles.size(); i++) {
+                    if (!this.tiles.get(i).equals(playField2.tiles.get(i))) {
+                        return false;
+                    }
+                }
+                return playField2.getId() == getId() && playField2.horizontalTiles == this.horizontalTiles
+                        && playField2.verticalTiles == this.verticalTiles
+                        && playField2.player == this.player;
+            }
         }
         return false;
     }

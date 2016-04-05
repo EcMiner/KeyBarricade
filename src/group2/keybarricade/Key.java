@@ -19,7 +19,7 @@ public class Key extends InteractableObject {
     
     @Override
     public boolean equals (Object obj){
-       if(obj instanceof Key) {
+       if(obj != null && obj instanceof Key) {
            Key key2 = (Key) obj;
            return key2.pinCode == this.pinCode;
        }

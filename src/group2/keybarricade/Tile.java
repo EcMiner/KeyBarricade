@@ -13,7 +13,7 @@ public abstract class Tile extends JComponent {
     
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Tile) {
+        if (obj != null && obj instanceof Tile) {
             Tile tile2 = (Tile) obj;
             return tile2.locationX == this.locationX && tile2.locationY == this.locationY;
         }

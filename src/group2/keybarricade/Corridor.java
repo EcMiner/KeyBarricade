@@ -8,9 +8,9 @@ public class Corridor extends Tile {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Corridor) {
+        if (obj != null && obj instanceof Corridor) {
             Corridor corridor2 = (Corridor) obj;
-            return ((Tile) obj).equals((Tile) this) && ((corridor2.interactableObject == null && this.interactableObject == null) || corridor2.getInteractableObject().equals(this.getInteractableObject()));
+            return super.equals(obj) && ((corridor2.interactableObject == null && this.interactableObject == null) || corridor2.getInteractableObject().equals(this.getInteractableObject()));
         }
         return false;
     }
