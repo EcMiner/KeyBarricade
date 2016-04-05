@@ -18,7 +18,10 @@ public class LevelLoader {
         for (int i = 1;; i++) {
             InputStream input = getClass().getResourceAsStream("/maps/map" + i + ".json");
             if (input != null) {
-                playFields.add(loadLevel(input));
+                PlayField playField = loadLevel(input);
+                if (playField != null) {
+                    playFields.add(playField);
+                }
             } else {
                 break;
             }
