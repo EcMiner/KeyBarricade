@@ -60,17 +60,12 @@ public class BarricadeTest {
         Barricade instance = new Barricade(333);
         boolean expResult = true;
         boolean result = instance.keyFits(key);
+        
+        Key key2 = new Key(133);
+        boolean expResult2 = false;
+        boolean result2 = instance.keyFits(key2);
         assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testKeyNotFits() {
-        System.out.println("keyNotFits");
-        Key key = new Key(333);
-        Barricade instance = new Barricade(113);
-        boolean expResult = false;
-        boolean result = instance.keyFits(key);
-        assertEquals(expResult, result);
+        assertEquals(expResult2, result2);
     }
 
     /**
