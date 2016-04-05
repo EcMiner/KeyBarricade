@@ -126,7 +126,7 @@ public class PlayField extends JPanel {
                 }
                 return playField2.getId() == getId() && playField2.horizontalTiles == this.horizontalTiles
                         && playField2.verticalTiles == this.verticalTiles
-                        && playField2.player == this.player;
+                        && playField2.player.equals(this.player);
             }
         }
         return false;
