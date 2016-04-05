@@ -24,8 +24,8 @@ public class PlayField extends JPanel {
     private PlayField(int horizontalTiles, int verticalTiles, ArrayList<Tile> tiles, int id, Tile startTile) {
         setLayout(null);
         setSize(600, 600);
-        this.horizontalTiles = horizontalTiles;
-        this.verticalTiles = verticalTiles;
+        this.horizontalTiles = Math.max(1, horizontalTiles);
+        this.verticalTiles = Math.max(1, verticalTiles);
         this.id = id;
         this.tiles = tiles;
         this.startTile = startTile;
@@ -60,17 +60,19 @@ public class PlayField extends JPanel {
     }
 
     public void resizeField(int frameWidth, int frameHeight) {
-        int cubeSize = Math.min(frameWidth / horizontalTiles, frameHeight / verticalTiles);
-        setSize(cubeSize * horizontalTiles, cubeSize * verticalTiles);
-        setLocation((frameWidth - getWidth()) / 2, 0);
+        if (frameWidth > 0 && frameHeight > 0) {
+            int cubeSize = Math.min(frameWidth / horizontalTiles, frameHeight / verticalTiles);
+            setSize(cubeSize * horizontalTiles, cubeSize * verticalTiles);
+            setLocation((frameWidth - getWidth()) / 2, 0);
 
-        for (Tile tile : tiles) {
-            tile.resize(cubeSize);
-            tile.setLocation(tile.getLocationX() * cubeSize, tile.getLocationY() * cubeSize);
+            for (Tile tile : tiles) {
+                tile.resize(cubeSize);
+                tile.setLocation(tile.getLocationX() * cubeSize, tile.getLocationY() * cubeSize);
+            }
+            player.resize(cubeSize);
+            invalidate();
+            repaint();
         }
-        player.resize(cubeSize);
-        invalidate();
-        repaint();
     }
 
     @Override

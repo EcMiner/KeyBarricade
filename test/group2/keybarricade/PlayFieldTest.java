@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package group2.keybarricade;
 
-import java.awt.BorderLayout;
 import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,10 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Wouter
- */
 public class PlayFieldTest {
 
     static PlayField staticTestField;
@@ -74,13 +64,25 @@ public class PlayFieldTest {
      * Test of resizeField method, of class PlayField.
      */
     @Test
-    public void testResizeField() {
+    public void testResizeField1() {
         System.out.println("resizeField");
         int frameWidth = 500;
         int frameHeight = 500;
         PlayField instance = testField;
         instance.resizeField(frameWidth, frameHeight);
         if (instance.getWidth() != frameWidth && instance.getHeight() != frameHeight) {
+            fail("Resize did not work");
+        }
+    }
+    
+    @Test
+    public void testResizeField2() {
+        System.out.println("resizeField");
+        int frameWidth = -100;
+        int frameHeight = -100;
+        PlayField instance = testField;
+        instance.resizeField(frameWidth, frameHeight);
+        if (instance.getWidth() == frameWidth && instance.getHeight() == frameHeight) {
             fail("Resize did not work");
         }
     }
