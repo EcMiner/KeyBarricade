@@ -30,7 +30,7 @@ public class LevelLoader {
         return playFields;
     }
 
-    private PlayField loadLevel(InputStream input) {
+    PlayField loadLevel(InputStream input) {
         try {
             JsonObject obj = parser.parse(new InputStreamReader(input)).getAsJsonObject();
 
