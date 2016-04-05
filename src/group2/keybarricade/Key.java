@@ -16,7 +16,16 @@ public class Key extends InteractableObject {
         super(image);
         this.pinCode = pinCode;
     }
-
+    
+    @Override
+    public boolean equals (Object obj){
+       if(obj instanceof Key) {
+           Key key2 = (Key) obj;
+           return key2.pinCode == this.pinCode;
+       }
+        return false;
+    }
+    
     public int getPinCode() {
         return pinCode;
     }

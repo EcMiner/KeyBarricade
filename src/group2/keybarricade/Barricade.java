@@ -25,7 +25,16 @@ public class Barricade extends InteractableObject {
     public boolean keyFits(Key key) {
         return this.pinCode == key.getPinCode();
     }
-
+    
+      @Override
+    public boolean equals (Object obj){
+       if(obj instanceof Barricade) {
+           Barricade barricade2 = (Barricade) obj;
+           return barricade2.pinCode == this.pinCode;
+       }
+        return false;
+    }
+    
     @Override
     public void paint(Graphics g, int cubeSize) {
         super.paint(g, cubeSize);

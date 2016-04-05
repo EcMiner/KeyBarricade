@@ -5,8 +5,9 @@ import java.awt.image.BufferedImage;
 
 public abstract class InteractableObject {
 
+    
     private final BufferedImage image;
-
+    
     public InteractableObject(BufferedImage image) {
         this.image = image;
     }

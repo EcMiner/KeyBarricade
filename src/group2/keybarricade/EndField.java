@@ -11,4 +11,12 @@ public class EndField extends InteractableObject {
         super(image);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof EndField) {
+            return true;
+        }
+        return false;
+    }
+
 }
