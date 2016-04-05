@@ -101,9 +101,7 @@ public class LevelLoader {
             }
         } catch (Exception ex) {
             // This exception could be called if the file isn't a correctly formatted json file
-            ex.printStackTrace();
         }
-
         return null;
     }
 
