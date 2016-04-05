@@ -123,4 +123,16 @@ public class PlayField extends JPanel {
         }
         return false;
     }
+
+    public int getVerticalTiles() {
+        return verticalTiles;
+    }
+
+    public int getHorizontalTiles() {
+        return horizontalTiles;
+    }
+
+    public ArrayList<Tile> getTiles() {
+        return tiles;
+    }
 }

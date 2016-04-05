@@ -5,5 +5,10 @@
             "x": 0,
             "y": 0,
             "type": "STARTFIELD"
+        },
+        {
+            "x": 0,
+            "y": 0,
+            "type": "ENDFIELD"
         }]
 }

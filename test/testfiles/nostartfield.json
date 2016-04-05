@@ -1,0 +1,9 @@
+{
+    "playfieldWidth": 10,
+    "playfieldHeight": 10,
+    "tiles": [{
+            "x": 0,
+            "y": 0,
+            "type": "STARTFIELD"
+        }]
+}

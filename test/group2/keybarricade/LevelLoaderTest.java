@@ -32,7 +32,7 @@ public class LevelLoaderTest {
     /**
      * Test of loadLevels method, of class LevelLoader.
      */
-    //@Test
+    @Test
     public void testLoadLevels1() {
         LevelLoader instance = new LevelLoader();
         int expResult = 7;
@@ -41,7 +41,7 @@ public class LevelLoaderTest {
     }
 
     /**
-     * Test of loadLevel method, of class LevelLoader.
+     * A test to see what happens when the InputStream is null
      */
     @Test
     public void testLoadLevel1() {
@@ -52,6 +52,9 @@ public class LevelLoaderTest {
         assertEquals("#loadLevel - Null Test", expResult, result);
     }
 
+    /**
+     * A test to see what happens when the InputStream is not a json file
+     */
     @Test
     public void testLoadLevel2() {
         InputStream input = getInputStream("/testfiles/nonjson.yml");
@@ -61,6 +64,9 @@ public class LevelLoaderTest {
         assertEquals("#loadLevel - Non json file test", expResult, result);
     }
 
+    /**
+     * A test to see what happens when the json file isn't correctly formatted
+     */
     @Test
     public void testLoadLevel3() {
         InputStream input = getInputStream("/testfiles/wrongformatted.json");
@@ -103,11 +109,65 @@ public class LevelLoaderTest {
      */
     @Test
     public void testLoadLevel6() {
-        InputStream input = getInputStream("/testfiles/minussize.json");
+        InputStream input = getInputStream("/testfiles/negativesize.json");
         LevelLoader instance = new LevelLoader();
         int expResult = 1;
-        int result = instance.loadLevel(input);
-        assertEquals("#loadLevel - Negative height or width", expResult, result);
+        PlayField playField = instance.loadLevel(input);
+        int resultVertical = playField.getVerticalTiles();
+        int resultHorizontal = playField.getHorizontalTiles();
+
+        assertEquals("#loadLevel - Negative height or width", expResult, resultVertical);
+        assertEquals("#loadLevel - Negative height or width", expResult, resultHorizontal);
+    }
+
+    /**
+     * A test to see what happens when there is no startfield defined in the
+     * json file.
+     */
+    @Test
+    public void testLoadLevel7() {
+        InputStream input = getInputStream("/testfiles/nostartfield.json");
+        LevelLoader instance = new LevelLoader();
+        PlayField expResult = null;
+        PlayField result = instance.loadLevel(input);
+        assertEquals("#loadLevel - No startfield", expResult, result);
+    }
+
+    /**
+     * A test to see what happens when there is no endfield defined in the json
+     * file.
+     */
+    @Test
+    public void testLoadLevel8() {
+        InputStream input = getInputStream("/testfiles/noendfield.json");
+        LevelLoader instance = new LevelLoader();
+        PlayField expResult = null;
+        PlayField result = instance.loadLevel(input);
+        assertEquals("#loadLevel - No endfield", expResult, result);
+    }
+
+    /**
+     * A test to see what happens when a tile in the json files is not in the
+     * bounds of the playfield
+     */
+    @Test
+    public void testLoadLevel9() {
+        InputStream input = getInputStream("/testfiles/outofbounds.json");
+        LevelLoader instance = new LevelLoader();
+        boolean expResult = true;
+
+        PlayField result = instance.loadLevel(input);
+        boolean hasOutOfBounds = false;
+        for (Tile tile : result.getTiles()) {
+            int x = tile.getLocationX();
+            int y = tile.getLocationY();
+            if (x < 0 || y < 0 || x >= result.getHorizontalTiles() || y >= result.getVerticalTiles()) {
+                hasOutOfBounds = true;
+                break;
+            }
+        }
+
+        assertEquals("#loadLevel - Tiles out of bounds", expResult, hasOutOfBounds);
     }
 
     private InputStream getInputStream(String path) {

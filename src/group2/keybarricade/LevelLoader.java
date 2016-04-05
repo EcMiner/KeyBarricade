@@ -41,49 +41,51 @@ public class LevelLoader {
                 ArrayList<Tile> tiles = new ArrayList<>();
                 JsonArray jsonTiles = obj.get("tiles").getAsJsonArray();
                 Tile startField = null;
+                boolean hasEndField = false;
                 for (JsonElement element : jsonTiles) {
                     if (element.isJsonObject()) {
-
                         JsonObject jsonTile = element.getAsJsonObject();
-
                         if (jsonTile.has("x") && jsonTile.has("y") && jsonTile.has("type")) {
                             int x = jsonTile.get("x").getAsInt();
                             int y = jsonTile.get("y").getAsInt();
+                            if ((x >= 0 && y >= 0) && (x < horizontalTiles && y < verticalTiles)) {
 
-                            String type = jsonTile.get("type").getAsString().toLowerCase();
-                            Tile tile;
-                            switch (type) {
-                                case "wall":
-                                    tile = new Wall(x, y);
-                                    break;
-                                case "key":
-                                    if (jsonTile.has("pinCode")) {
-                                        tile = new Corridor(x, y, new Key(jsonTile.get("pinCode").getAsInt()));
-                                    } else {
+                                String type = jsonTile.get("type").getAsString().toLowerCase();
+                                Tile tile;
+                                switch (type) {
+                                    case "wall":
+                                        tile = new Wall(x, y);
+                                        break;
+                                    case "key":
+                                        if (jsonTile.has("pinCode")) {
+                                            tile = new Corridor(x, y, new Key(jsonTile.get("pinCode").getAsInt()));
+                                        } else {
+                                            continue;
+                                        }
+                                        break;
+                                    case "barricade":
+                                        if (jsonTile.has("pinCode")) {
+                                            tile = new Corridor(x, y, new Barricade(jsonTile.get("pinCode").getAsInt()));
+                                        } else {
+                                            continue;
+                                        }
+                                        break;
+                                    case "endfield":
+                                        hasEndField = true;
+                                        tile = new Corridor(x, y, new EndField());
+                                        break;
+                                    case "startfield":
+                                        startField = tile = new Corridor(x, y);
+                                        break;
+                                    default:
                                         continue;
-                                    }
-                                    break;
-                                case "barricade":
-                                    if (jsonTile.has("pinCode")) {
-                                        tile = new Corridor(x, y, new Barricade(jsonTile.get("pinCode").getAsInt()));
-                                    } else {
-                                        continue;
-                                    }
-                                    break;
-                                case "endfield":
-                                    tile = new Corridor(x, y, new EndField());
-                                    break;
-                                case "startfield":
-                                    startField = tile = new Corridor(x, y);
-                                    break;
-                                default:
-                                    continue;
+                                }
+                                tiles.add(tile);
                             }
-                            tiles.add(tile);
                         }
                     }
                 }
-                if (startField != null) {
+                if (startField != null && hasEndField) {
                     for (int x = 0; x < horizontalTiles; x++) {
                         for (int y = 0; y < verticalTiles; y++) {
                             boolean tileExists = false;
