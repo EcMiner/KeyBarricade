@@ -13,14 +13,28 @@ import javax.swing.JMenuItem;
 public class MenuBar extends JMenuBar {
 
     private final KeyBarricade keyBarricade;
+    private final JButton resetButton;
+    private final JButton homeButton;
 
     public MenuBar(KeyBarricade keyBarricade) {
         this.keyBarricade = keyBarricade;
 
-        JButton resetButton = new JButton("Reset");
+        resetButton = new JButton("Reset");
         resetButton.setFocusable(false);
         resetButton.addActionListener(new ResetListener());
         add(resetButton);
+        setResetVisible(false);
+
+        JButton randomButton = new JButton("Random");
+        randomButton.setFocusable(false);
+        randomButton.addActionListener(new RandomListener());
+        add(randomButton);
+
+        homeButton = new JButton("Home");
+        homeButton.setFocusable(false);
+        homeButton.addActionListener(new HomeListener());
+        add(homeButton);
+        setHomeVisible(false);
 
         JMenu levelSelector = new JMenu("Levels");
         LevelSelectListener levelSelectListener = new LevelSelectListener();
@@ -34,6 +48,14 @@ public class MenuBar extends JMenuBar {
 
         setFocusable(false);
         MenuScroller.setScrollerFor(levelSelector, 20);
+    }
+
+    public void setResetVisible(boolean visible) {
+        resetButton.setVisible(visible);
+    }
+
+    public void setHomeVisible(boolean visible) {
+        homeButton.setVisible(visible);
     }
 
     private class ResetListener implements ActionListener {
@@ -51,6 +73,24 @@ public class MenuBar extends JMenuBar {
         public void actionPerformed(ActionEvent e) {
             int levelId = Integer.parseInt(e.getActionCommand().substring(4)) - 1;
             keyBarricade.start(levelId);
+        }
+
+    }
+
+    private class RandomListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            keyBarricade.randomMap();
+        }
+
+    }
+
+    private class HomeListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            keyBarricade.showHomeScreen();
         }
 
     }

@@ -46,8 +46,10 @@ public class KeyBarricade extends JFrame {
      * This method will reset the map you're currently playing on
      */
     public void reset() {
-        if (currentPlayField != null) {
+        if (currentPlayField != null && currentPlayField.getId() < playFields.size()) {
             start(currentPlayField.getId());
+        } else if (currentPlayField != null && RandomMapGenerator.getLastGeneratedPlayField() != null) {
+            load(RandomMapGenerator.getLastGeneratedPlayField().clone());
         }
     }
 
@@ -65,14 +67,22 @@ public class KeyBarricade extends JFrame {
             remove(currentPlayField);
         }
         remove(homeScreen);
-        add(bottomBar);
+        MenuBar menuBar = (MenuBar) getJMenuBar();
+        menuBar.setResetVisible(true);
+        menuBar.setHomeVisible(true);
 
         add(playField);
         this.currentPlayField = playField;
         this.currentPlayField.getPlayer().setKeyBarricade(this);
         bottomBar.reset();
+        add(bottomBar);
         playField.resizeField(getContentPane().getWidth(), getContentPane().getHeight() - bottomBar.getHeight());
+        validate();
         repaint();
+    }
+
+    public void randomMap() {
+        load(new RandomMapGenerator().generateRandomMap());
     }
 
     public ArrayList<PlayField> getPlayFields() {
@@ -90,7 +100,13 @@ public class KeyBarricade extends JFrame {
     public void showHomeScreen() {
         if (currentPlayField != null) {
             remove(currentPlayField);
+            currentPlayField = null;
         }
+
+        MenuBar menuBar = (MenuBar) getJMenuBar();
+        menuBar.setResetVisible(false);
+        menuBar.setHomeVisible(false);
+
         remove(bottomBar);
         add(homeScreen);
         repaint();

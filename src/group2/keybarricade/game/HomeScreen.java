@@ -67,6 +67,7 @@ public class HomeScreen extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            keyBarricade.randomMap();
         }
 
     }

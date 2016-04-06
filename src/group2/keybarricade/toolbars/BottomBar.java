@@ -43,6 +43,7 @@ public class BottomBar extends JPanel {
     public void resizePanel(int frameWidth, int frameHeight) {
         setSize(frameWidth, 30);
         setLocation(0, frameHeight - getHeight());
+        repaint();
     }
 
 }
