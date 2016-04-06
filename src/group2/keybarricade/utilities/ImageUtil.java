@@ -22,7 +22,10 @@ public class ImageUtil {
     public static BufferedImage resize(BufferedImage source, int cubeSize) {
         double scale = Math.min((double) cubeSize / (double) source.getWidth(),
                 (double) cubeSize / (double) source.getHeight());
+        return resize(source, scale);
+    }
 
+    public static BufferedImage resize(BufferedImage source, double scale) {
         BufferedImage resized = Scalr.resize(source, Scalr.Method.SPEED,
                 (int) Math.round(scale * source.getWidth()), (int) Math.round(scale * source.getHeight()),
                 Scalr.OP_ANTIALIAS);

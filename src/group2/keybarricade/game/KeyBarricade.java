@@ -21,10 +21,13 @@ public class KeyBarricade extends JFrame {
     private final BottomBar bottomBar;
     private PlayField currentPlayField;
 
+    private final HomeScreen homeScreen;
+
     public KeyBarricade() {
         super("Key Barricade");
         this.playFields = new LevelLoader().loadLevels();
         this.bottomBar = new BottomBar();
+        this.homeScreen = new HomeScreen(this);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(500, 500));
@@ -36,10 +39,7 @@ public class KeyBarricade extends JFrame {
         pack();
         setVisible(true);
 
-        add(bottomBar);
-        bottomBar.resizePanel(getContentPane().getWidth(), getContentPane().getHeight());
-
-        start(0);
+        this.add(homeScreen);
     }
 
     /**
@@ -64,6 +64,9 @@ public class KeyBarricade extends JFrame {
         if (currentPlayField != null) {
             remove(currentPlayField);
         }
+        remove(homeScreen);
+        add(bottomBar);
+
         add(playField);
         this.currentPlayField = playField;
         this.currentPlayField.getPlayer().setKeyBarricade(this);
@@ -84,6 +87,15 @@ public class KeyBarricade extends JFrame {
         return currentPlayField;
     }
 
+    public void showHomeScreen() {
+        if (currentPlayField != null) {
+            remove(currentPlayField);
+        }
+        remove(bottomBar);
+        add(homeScreen);
+        repaint();
+    }
+
     private class ResizeListener extends ComponentAdapter {
 
         @Override
@@ -94,8 +106,9 @@ public class KeyBarricade extends JFrame {
                  without adding the size of the top bar
                  */
                 currentPlayField.resizeField(getContentPane().getWidth(), getContentPane().getHeight() - bottomBar.getHeight());
-                bottomBar.resizePanel(getContentPane().getWidth(), getContentPane().getHeight());
             }
+            bottomBar.resizePanel(getContentPane().getWidth(), getContentPane().getHeight());
+            homeScreen.resizePanel(getContentPane().getWidth(), getContentPane().getHeight());
         }
 
     }

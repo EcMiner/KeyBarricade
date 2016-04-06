@@ -24,7 +24,7 @@ public class Player extends JComponent {
     private Key key;
     private KeyBarricade keyBarricade;
     private Score score;
-    
+
     public Player(Tile startTile) {
         this.currentTile = startTile;
         setImage(Direction.DOWN);
@@ -122,10 +122,12 @@ public class Player extends JComponent {
                         if (keyBarricade.getCurrentPlayField().getId() < keyBarricade.getPlayFields().size() - 1) {
                             int result = JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nNext level?", "Do you want to continue to the next level?", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.CANCEL_OPTION || result == JOptionPane.NO_OPTION) {
-                                // TODO Go to home screen.
+                                keyBarricade.showHomeScreen();
                             } else if (result == JOptionPane.YES_OPTION) {
                                 keyBarricade.start(keyBarricade.getCurrentPlayField().getId() + 1);
                             }
+                        } else {
+                            keyBarricade.showHomeScreen();
                         }
                     }
                 }
