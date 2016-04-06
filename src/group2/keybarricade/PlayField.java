@@ -37,7 +37,6 @@ public class PlayField extends JPanel {
             add(tile);
         }
         add(player);
-        System.out.println(startTile.getLocationX() + "," + startTile.getLocationY());
         repaint();
     }
 

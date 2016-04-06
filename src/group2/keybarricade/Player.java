@@ -60,7 +60,6 @@ public class Player extends JComponent {
         setImage(direction);
         if (canMove(direction)) {
             currentTile = currentTile.getNeighbour(direction);
-            System.out.println(currentTile.getLocationX() + ", " + currentTile.getLocationY());
             setLocation(currentTile.getX(), currentTile.getY());
             tryInteraction();
         }

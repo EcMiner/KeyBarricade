@@ -170,6 +170,21 @@ public class LevelLoaderTest {
         assertEquals("#loadLevel - Tiles out of bounds", expResult, hasOutOfBounds);
     }
 
+    /**
+     * A test to see what happens when the playfield height or width is not an
+     * int, and not a string with an int in it (if there's a string with an int
+     * in it, com.google.gson will automatically parse it to an int when calling
+     * com.google.gson.JsonElement#getAsInt
+     */
+    @Test
+    public void testLoadLevel10() {
+        InputStream input = getInputStream("/testfiles/stringwidth.json");
+        LevelLoader instance = new LevelLoader();
+        PlayField expResult = null;
+        PlayField result = instance.loadLevel(input);
+        assertEquals("#loadLevel - String width or height", expResult, result);
+    }
+
     private InputStream getInputStream(String path) {
         return getClass().getResourceAsStream(path);
     }
