@@ -1,5 +1,8 @@
 package group2.keybarricade;
 
+import group2.keybarricade.game.PlayField;
+import group2.keybarricade.game.LevelLoader;
+import group2.keybarricade.tile.Corridor;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

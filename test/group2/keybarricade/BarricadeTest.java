@@ -1,5 +1,7 @@
 package group2.keybarricade;
 
+import group2.keybarricade.interactable.Key;
+import group2.keybarricade.interactable.Barricade;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
