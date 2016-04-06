@@ -1,5 +1,6 @@
 package group2.keybarricade.game;
 
+import group2.keybarricade.MusicPlayer;
 import group2.keybarricade.toolbars.MenuBar;
 import group2.keybarricade.toolbars.BottomBar;
 import java.awt.Dimension;
@@ -15,6 +16,7 @@ public class KeyBarricade extends JFrame {
 
     public static void main(String[] args) {
         new KeyBarricade();
+        new MusicPlayer().startPlaying();
     }
 
     private final ArrayList<PlayField> playFields;
