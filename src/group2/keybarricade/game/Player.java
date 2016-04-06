@@ -144,8 +144,4 @@ public class Player extends JComponent {
     public void setKeyBarricade(KeyBarricade keyBarricade) {
         this.keyBarricade = keyBarricade;
     }
-    
-    public Score getScore() {
-        return score;
-    }
 }
