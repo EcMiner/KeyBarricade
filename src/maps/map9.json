@@ -158,19 +158,7 @@
       "type": "WALL"
     },
     {
-      "x": 0,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 100
-    },
-    {
       "x": 1,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 100
-    },
-    {
-      "x": 2,
       "y": 5,
       "type": "BARRICADE",
       "pinCode": 100
@@ -278,12 +266,6 @@
       "pinCode": 250
     },
     {
-      "x": 8,
-      "y": 8,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
       "x": 6,
       "y": 0,
       "type": "BARRICADE",
@@ -325,6 +307,27 @@
       "y": 6,
       "type": "KEY",
       "pinCode": 100
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "type": "WALL"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "type": "BARRICADE",
+      "pinCode": 200
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "type": "WALL"
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "WALL"
     }
   ]
 }
