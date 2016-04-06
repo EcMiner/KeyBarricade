@@ -1,8 +1,9 @@
-package group2.keybarricade;
+package group2.keybarricade.tile;
 
+import group2.keybarricade.utilities.ImageUtil;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import static group2.keybarricade.ImageUtil.*;
+import static group2.keybarricade.utilities.ImageUtil.*;
 
 public class Wall extends Tile {
 

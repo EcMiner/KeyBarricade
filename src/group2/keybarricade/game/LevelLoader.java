@@ -1,5 +1,11 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
+import group2.keybarricade.tile.Wall;
+import group2.keybarricade.tile.Tile;
+import group2.keybarricade.tile.Corridor;
+import group2.keybarricade.interactable.EndField;
+import group2.keybarricade.interactable.Key;
+import group2.keybarricade.interactable.Barricade;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,8 +16,18 @@ import java.util.ArrayList;
 
 public class LevelLoader {
 
+    /**
+     * The JsonParser object that will try and parse an InputStream to a
+     * JsonObject ({@link #loadLevel(java.io.InputStream) loadLevel}
+     */
     private final JsonParser parser = new JsonParser();
 
+    /**
+     * This will load all the map file in the maps folder. The maps have to be
+     * named map + a number (i.e. 'map1') and the file type needs to be .json
+     *
+     * @return Returns a list of all the default PlayFields for the game
+     */
     public ArrayList<PlayField> loadLevels() {
         ArrayList<PlayField> playFields = new ArrayList<>();
 
@@ -30,7 +46,16 @@ public class LevelLoader {
         return playFields;
     }
 
-    PlayField loadLevel(InputStream input) {
+    /**
+     * This will try and parse a JsonObject from an input stream and from there
+     * it will try and deserialze the json to a PlayField object, if possible.
+     * We made this method public so we are able to access it from the Test
+     * Class LevelLoaderTest
+     *
+     * @param input The input which needs to be deserialized
+     * @return Returns a PlayField object if the deserialization was successful
+     */
+    public PlayField loadLevel(InputStream input) {
         try {
             JsonObject obj = parser.parse(new InputStreamReader(input)).getAsJsonObject();
 

@@ -1,5 +1,8 @@
-package group2.keybarricade;
+package group2.keybarricade.toolbars;
 
+import group2.keybarricade.game.KeyBarricade;
+import group2.keybarricade.game.PlayField;
+import group2.keybarricade.utilities.MenuScroller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

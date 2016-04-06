@@ -1,7 +1,7 @@
 /**
  * @(#)MenuScroller.java	1.5.0 04/02/12
  */
-package group2.keybarricade;
+package group2.keybarricade.utilities;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -22,6 +22,8 @@ import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 
 /**
+ * LET OP: Dit is externe bron, gehaald van: https://tips4java.wordpress.com/2009/02/01/menu-scroller/
+ * 
  * A class that provides scrolling capabilities to a long menu dropdown or popup
  * menu. A number of items can optionally be frozen at the top and/or bottom of
  * the menu.

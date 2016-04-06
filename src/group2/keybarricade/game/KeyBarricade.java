@@ -1,7 +1,8 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
+import group2.keybarricade.toolbars.MenuBar;
+import group2.keybarricade.toolbars.BottomBar;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
@@ -17,12 +18,13 @@ public class KeyBarricade extends JFrame {
     }
 
     private final ArrayList<PlayField> playFields;
-    private final BottomBar bottomBar = new BottomBar();
+    private final BottomBar bottomBar;
     private PlayField currentPlayField;
 
     public KeyBarricade() {
         super("Key Barricade");
         this.playFields = new LevelLoader().loadLevels();
+        this.bottomBar = new BottomBar();
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(500, 500));

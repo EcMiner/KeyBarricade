@@ -1,5 +1,6 @@
-package group2.keybarricade;
+package group2.keybarricade.tile;
 
+import group2.keybarricade.interactable.InteractableObject;
 import java.awt.Graphics;
 
 public class Corridor extends Tile {

@@ -1,8 +1,16 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
+import group2.keybarricade.toolbars.NotificationType;
+import group2.keybarricade.utilities.ImageUtil;
+import group2.keybarricade.tile.Tile;
+import group2.keybarricade.tile.Corridor;
+import group2.keybarricade.interactable.EndField;
+import group2.keybarricade.interactable.Key;
+import group2.keybarricade.interactable.InteractableObject;
+import group2.keybarricade.interactable.Barricade;
 import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
-import static group2.keybarricade.ImageUtil.*;
+import static group2.keybarricade.utilities.ImageUtil.*;
 import java.awt.Graphics;
 import javax.swing.JOptionPane;
 
@@ -65,7 +73,7 @@ public class Player extends JComponent {
         }
     }
 
-    public boolean canMove(Direction direction) {
+    private boolean canMove(Direction direction) {
         Tile neighbour = currentTile.getNeighbour(direction);
         if (neighbour != null && neighbour instanceof Corridor) {
             Corridor corridor = (Corridor) neighbour;
@@ -94,7 +102,7 @@ public class Player extends JComponent {
         return false;
     }
 
-    public void tryInteraction() {
+    private void tryInteraction() {
         if (currentTile instanceof Corridor) {
             Corridor corridor = (Corridor) currentTile;
             if (corridor.getInteractableObject() != null) {

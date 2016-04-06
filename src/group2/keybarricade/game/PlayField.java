@@ -1,5 +1,6 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
+import group2.keybarricade.tile.Tile;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;

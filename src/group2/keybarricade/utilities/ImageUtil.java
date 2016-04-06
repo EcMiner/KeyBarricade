@@ -1,5 +1,6 @@
-package group2.keybarricade;
+package group2.keybarricade.utilities;
 
+import group2.keybarricade.interactable.InteractableObject;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;

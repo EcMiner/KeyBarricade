@@ -1,4 +1,4 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
 public enum Direction {
 

@@ -1,5 +1,7 @@
-package group2.keybarricade;
+package group2.keybarricade.toolbars;
 
+import group2.keybarricade.utilities.ImageUtil;
+import group2.keybarricade.interactable.Key;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
