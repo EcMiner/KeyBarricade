@@ -23,10 +23,12 @@ public class Player extends JComponent {
     private Tile currentTile;
     private Key key;
     private KeyBarricade keyBarricade;
-
+    private Score score;
+    
     public Player(Tile startTile) {
         this.currentTile = startTile;
         setImage(Direction.DOWN);
+        score = new Score();
     }
 
     @Override
@@ -70,6 +72,7 @@ public class Player extends JComponent {
             currentTile = currentTile.getNeighbour(direction);
             setLocation(currentTile.getX(), currentTile.getY());
             tryInteraction();
+            score.addStep();
         }
     }
 
@@ -117,7 +120,7 @@ public class Player extends JComponent {
                     if (keyBarricade != null && keyBarricade.getCurrentPlayField() != null) {
                         keyBarricade.getCurrentPlayField().setFinished(true);
                         if (keyBarricade.getCurrentPlayField().getId() < keyBarricade.getPlayFields().size() - 1) {
-                            int result = JOptionPane.showConfirmDialog(keyBarricade, "Next level?", "Do you want to continue to the next level?", JOptionPane.YES_NO_OPTION);
+                            int result = JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nNext level?", "Do you want to continue to the next level?", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.CANCEL_OPTION || result == JOptionPane.NO_OPTION) {
                                 // TODO Go to home screen.
                             } else if (result == JOptionPane.YES_OPTION) {
@@ -140,5 +143,9 @@ public class Player extends JComponent {
 
     public void setKeyBarricade(KeyBarricade keyBarricade) {
         this.keyBarricade = keyBarricade;
+    }
+    
+    public Score getScore() {
+        return score;
     }
 }
