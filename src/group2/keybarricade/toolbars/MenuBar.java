@@ -47,7 +47,7 @@ public class MenuBar extends JMenuBar {
         add(levelSelector);
 
         setFocusable(false);
-        MenuScroller.setScrollerFor(levelSelector, 20);
+        MenuScroller.setScrollerFor(levelSelector, 5);
     }
 
     public void setResetVisible(boolean visible) {

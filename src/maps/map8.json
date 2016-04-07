@@ -1,602 +1,270 @@
 {
-  "playfieldWidth": 15,
-  "playfieldHeight": 15,
+  "playfieldWidth": 11,
+  "playfieldHeight": 11,
   "tiles": [
     {
-      "x": 5,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 5,
-      "type": "WALL"
-    },
-    {
-      "x": 9,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 9,
-      "type": "WALL"
-    },
-    {
-      "x": 10,
-      "y": 10,
-      "type": "WALL"
-    },
-    {
-      "x": 10,
-      "y": 4,
-      "type": "WALL"
-    },
-    {
-      "x": 4,
-      "y": 4,
-      "type": "WALL"
-    },
-    {
-      "x": 4,
-      "y": 10,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 2,
-      "type": "WALL"
-    },
-    {
-      "x": 12,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 12,
-      "type": "WALL"
-    },
-    {
-      "x": 1,
-      "y": 13,
-      "type": "WALL"
-    },
-    {
-      "x": 12,
-      "y": 13,
-      "type": "WALL"
-    },
-    {
-      "x": 13,
-      "y": 13,
-      "type": "WALL"
-    },
-    {
-      "x": 13,
-      "y": 12,
-      "type": "WALL"
-    },
-    {
-      "x": 13,
-      "y": 2,
-      "type": "WALL"
-    },
-    {
-      "x": 13,
-      "y": 1,
-      "type": "WALL"
-    },
-    {
-      "x": 12,
-      "y": 1,
-      "type": "WALL"
-    },
-    {
-      "x": 2,
-      "y": 1,
-      "type": "WALL"
-    },
-    {
-      "x": 1,
-      "y": 1,
-      "type": "WALL"
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "type": "WALL"
-    },
-    {
-      "x": 1,
-      "y": 12,
-      "type": "WALL"
-    },
-    {
-      "x": 2,
-      "y": 13,
-      "type": "WALL"
-    },
-    {
-      "x": 6,
-      "y": 3,
-      "type": "WALL"
-    },
-    {
-      "x": 8,
-      "y": 3,
-      "type": "WALL"
-    },
-    {
-      "x": 11,
-      "y": 6,
-      "type": "WALL"
-    },
-    {
-      "x": 11,
-      "y": 8,
-      "type": "WALL"
-    },
-    {
-      "x": 8,
-      "y": 11,
-      "type": "WALL"
-    },
-    {
-      "x": 6,
-      "y": 11,
-      "type": "WALL"
-    },
-    {
-      "x": 3,
-      "y": 8,
-      "type": "WALL"
-    },
-    {
-      "x": 3,
-      "y": 6,
-      "type": "WALL"
-    },
-    {
-      "x": 4,
-      "y": 0,
-      "type": "WALL"
-    },
-    {
-      "x": 5,
-      "y": 0,
-      "type": "WALL"
-    },
-    {
-      "x": 9,
-      "y": 0,
-      "type": "WALL"
-    },
-    {
-      "x": 10,
-      "y": 0,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
-      "y": 4,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
-      "y": 5,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
-      "y": 9,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
-      "y": 10,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 0,
-      "type": "WALL"
-    },
-    {
       "x": 0,
-      "y": 7,
-      "type": "WALL"
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "type": "WALL"
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "type": "WALL"
-    },
-    {
-      "x": 0,
-      "y": 9,
-      "type": "WALL"
-    },
-    {
-      "x": 0,
-      "y": 10,
-      "type": "WALL"
-    },
-    {
-      "x": 7,
-      "y": 14,
-      "type": "WALL"
-    },
-    {
-      "x": 5,
-      "y": 14,
-      "type": "WALL"
-    },
-    {
-      "x": 4,
-      "y": 14,
-      "type": "WALL"
-    },
-    {
-      "x": 10,
-      "y": 14,
-      "type": "WALL"
-    },
-    {
-      "x": 9,
-      "y": 14,
-      "type": "WALL"
-    },
-    {
-      "x": 14,
       "y": 0,
-      "type": "ENDFIELD"
-    },
-    {
-      "x": 9,
-      "y": 8,
-      "type": "BARRICADE",
-      "pinCode": 100
-    },
-    {
-      "x": 8,
-      "y": 9,
-      "type": "BARRICADE",
-      "pinCode": 100
-    },
-    {
-      "x": 6,
-      "y": 6,
-      "type": "KEY",
-      "pinCode": 100
-    },
-    {
-      "x": 6,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 25
-    },
-    {
-      "x": 11,
-      "y": 7,
-      "type": "KEY",
-      "pinCode": 25
-    },
-    {
-      "x": 7,
-      "y": 11,
-      "type": "KEY",
-      "pinCode": 200
-    },
-    {
-      "x": 8,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 75
-    },
-    {
-      "x": 9,
-      "y": 6,
-      "type": "BARRICADE",
-      "pinCode": 75
-    },
-    {
-      "x": 5,
-      "y": 8,
-      "type": "BARRICADE",
-      "pinCode": 50
-    },
-    {
-      "x": 6,
-      "y": 9,
-      "type": "BARRICADE",
-      "pinCode": 50
-    },
-    {
-      "x": 8,
-      "y": 8,
-      "type": "KEY",
-      "pinCode": 200
-    },
-    {
-      "x": 11,
-      "y": 3,
-      "type": "WALL"
-    },
-    {
-      "x": 11,
-      "y": 11,
-      "type": "WALL"
-    },
-    {
-      "x": 3,
-      "y": 11,
-      "type": "WALL"
-    },
-    {
-      "x": 3,
-      "y": 3,
-      "type": "WALL"
-    },
-    {
-      "x": 9,
-      "y": 5,
-      "type": "WALL"
-    },
-    {
-      "x": 9,
-      "y": 9,
-      "type": "WALL"
-    },
-    {
-      "x": 5,
-      "y": 5,
-      "type": "WALL"
-    },
-    {
-      "x": 5,
-      "y": 9,
-      "type": "WALL"
-    },
-    {
-      "x": 11,
-      "y": 1,
-      "type": "BARRICADE",
-      "pinCode": 50
-    },
-    {
-      "x": 11,
-      "y": 0,
-      "type": "BARRICADE",
-      "pinCode": 50
-    },
-    {
-      "x": 12,
-      "y": 0,
-      "type": "BARRICADE",
-      "pinCode": 50
-    },
-    {
-      "x": 14,
-      "y": 2,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 14,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 13,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 0,
-      "y": 14,
-      "type": "KEY",
-      "pinCode": 50
-    },
-    {
-      "x": 0,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 4,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 5,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 9,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 10,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 11,
-      "y": 9,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 11,
-      "y": 10,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 11,
-      "y": 4,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 11,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 10,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 9,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 3,
-      "y": 9,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 3,
-      "y": 10,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 5,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 200
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "type": "BARRICADE",
-      "pinCode": 200
-    },
-    {
-      "x": 3,
-      "y": 4,
-      "type": "BARRICADE",
-      "pinCode": 250
-    },
-    {
-      "x": 3,
-      "y": 5,
-      "type": "BARRICADE",
-      "pinCode": 300
-    },
-    {
-      "x": 10,
-      "y": 5,
-      "type": "KEY",
-      "pinCode": 300
-    },
-    {
-      "x": 7,
-      "y": 7,
       "type": "STARTFIELD"
     },
     {
-      "x": 7,
-      "y": 1,
-      "type": "BARRICADE",
-      "pinCode": 75
-    },
-    {
-      "x": 3,
-      "y": 7,
-      "type": "KEY",
-      "pinCode": 75
-    },
-    {
-      "x": 5,
-      "y": 6,
-      "type": "BARRICADE",
-      "pinCode": 75
-    },
-    {
-      "x": 1,
-      "y": 6,
+      "x": 0,
+      "y": 2,
       "type": "WALL"
     },
     {
       "x": 1,
-      "y": 8,
+      "y": 1,
+      "type": "WALL"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "WALL"
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "type": "WALL"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "WALL"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "WALL"
+    },
+    {
+      "x": 1,
+      "y": 4,
       "type": "WALL"
     },
     {
       "x": 0,
-      "y": 0,
-      "type": "KEY",
-      "pinCode": 350
+      "y": 8,
+      "type": "WALL"
     },
     {
-      "x": 14,
-      "y": 11,
-      "type": "BARRICADE",
-      "pinCode": 350
+      "x": 1,
+      "y": 7,
+      "type": "WALL"
     },
     {
-      "x": 11,
-      "y": 14,
-      "type": "BARRICADE",
-      "pinCode": 350
+      "x": 2,
+      "y": 6,
+      "type": "WALL"
     },
     {
       "x": 3,
-      "y": 14,
-      "type": "BARRICADE",
-      "pinCode": 400
+      "y": 5,
+      "type": "WALL"
     },
     {
-      "x": 14,
-      "y": 14,
-      "type": "KEY",
-      "pinCode": 400
+      "x": 4,
+      "y": 4,
+      "type": "WALL"
     },
     {
-      "x": 13,
-      "y": 7,
-      "type": "BARRICADE",
-      "pinCode": 500
+      "x": 5,
+      "y": 3,
+      "type": "WALL"
     },
     {
       "x": 6,
+      "y": 2,
+      "type": "WALL"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "type": "WALL"
+    },
+    {
+      "x": 10,
+      "y": 1,
+      "type": "WALL"
+    },
+    {
+      "x": 9,
+      "y": 2,
+      "type": "WALL"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "type": "WALL"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "type": "WALL"
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "type": "WALL"
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "type": "WALL"
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "type": "WALL"
+    },
+    {
+      "x": 3,
+      "y": 8,
+      "type": "WALL"
+    },
+    {
+      "x": 2,
+      "y": 9,
+      "type": "WALL"
+    },
+    {
+      "x": 4,
+      "y": 10,
+      "type": "WALL"
+    },
+    {
+      "x": 5,
+      "y": 9,
+      "type": "WALL"
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "type": "WALL"
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "type": "WALL"
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "type": "WALL"
+    },
+    {
+      "x": 9,
+      "y": 5,
+      "type": "WALL"
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "type": "WALL"
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "type": "WALL"
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "type": "WALL"
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "type": "WALL"
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "type": "BARRICADE",
+      "pinCode": 100
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "KEY",
+      "pinCode": 100
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "BARRICADE",
+      "pinCode": 25
+    },
+    {
+      "x": 4,
       "y": 0,
       "type": "KEY",
-      "pinCode": 500
+      "pinCode": 25
+    },
+    {
+      "x": 0,
+      "y": 7,
+      "type": "KEY",
+      "pinCode": 50
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "type": "BARRICADE",
+      "pinCode": 50
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "type": "ENDFIELD"
+    },
+    {
+      "x": 7,
+      "y": 3,
+      "type": "BARRICADE",
+      "pinCode": 75
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "type": "KEY",
+      "pinCode": 75
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "type": "KEY",
+      "pinCode": 125
+    },
+    {
+      "x": 4,
+      "y": 9,
+      "type": "BARRICADE",
+      "pinCode": 125
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "type": "BARRICADE",
+      "pinCode": 150
+    },
+    {
+      "x": 10,
+      "y": 2,
+      "type": "KEY",
+      "pinCode": 150
+    },
+    {
+      "x": 5,
+      "y": 10,
+      "type": "KEY",
+      "pinCode": 200
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "type": "BARRICADE",
+      "pinCode": 200
     }
   ]
 }
