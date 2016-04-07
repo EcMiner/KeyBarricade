@@ -1,6 +1,5 @@
 package group2.keybarricade.game;
 
-import group2.keybarricade.MusicPlayer;
 import group2.keybarricade.toolbars.MenuBar;
 import group2.keybarricade.toolbars.BottomBar;
 import java.awt.Dimension;

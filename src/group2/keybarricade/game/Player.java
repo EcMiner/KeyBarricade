@@ -127,8 +127,12 @@ public class Player extends JComponent {
                                 keyBarricade.start(keyBarricade.getCurrentPlayField().getId() + 1);
                             }
                         } else {
-                            JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nGo back to homescreen", "You completed the game!", JOptionPane.DEFAULT_OPTION);
-                            keyBarricade.showHomeScreen();
+                            int result = JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nNew random level?", "You completed the game!", JOptionPane.YES_NO_OPTION);
+                            if (result == JOptionPane.CANCEL_OPTION || result == JOptionPane.NO_OPTION) {
+                                keyBarricade.showHomeScreen();
+                            } else if (result == JOptionPane.YES_OPTION) {
+                                keyBarricade.randomMap();
+                            }
                         }
                     }
                 }

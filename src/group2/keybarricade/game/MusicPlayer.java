@@ -1,14 +1,11 @@
-package group2.keybarricade;
+package group2.keybarricade.game;
 
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
 public class MusicPlayer {
 
-    private final String[] musicFiles = new String[]{"/sounds/wethands.wav", "/sounds/suck.wav"};
-
-    public MusicPlayer() {
-    }
+    private final String[] musicFiles = new String[]{"/sounds/wethands.wav"};
 
     public void startPlaying() {
         new Thread() {
