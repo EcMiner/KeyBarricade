@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 public class Player extends JComponent {
 
+    // All the images for the direction
     private static final BufferedImage[] images = new BufferedImage[]{loadImage("/images/playerleft.png"),
         loadImage("/images/playerright.png"), loadImage("/images/playerup.png"), loadImage("/images/playerdown.png")};
 
@@ -27,10 +28,17 @@ public class Player extends JComponent {
 
     public Player(Tile startTile) {
         this.currentTile = startTile;
+        // Set the default image to the one looking down
         setImage(Direction.DOWN);
         score = new Score();
     }
 
+    /**
+     * We use this for testing
+     *
+     * @param obj The other Player object
+     * @return Whether the two player objects are the same
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj != null && obj instanceof Player) {
@@ -42,6 +50,11 @@ public class Player extends JComponent {
         return false;
     }
 
+    /**
+     * Sets the image of the player to the direction it's looking at
+     *
+     * @param direction The direction to change
+     */
     public void setImage(Direction direction) {
         switch (direction) {
             case LEFT:
@@ -60,29 +73,56 @@ public class Player extends JComponent {
         repaint();
     }
 
+    /**
+     * Resize and reposition the Player
+     *
+     * @param cubeSize The cubesize
+     */
     public void resize(int cubeSize) {
         setSize(cubeSize, cubeSize);
         setLocation(currentTile.getX(), currentTile.getY());
         repaint();
     }
 
+    /**
+     * Try to move the player in a certain direction, and do interaction if
+     * possible
+     *
+     * @param direction The direction to move in
+     */
     public void move(Direction direction) {
         setImage(direction);
+
+        // Checks if the player can move to that direction
         if (canMove(direction)) {
+            // Changes the current tile
             currentTile = currentTile.getNeighbour(direction);
+            // Repositions
             setLocation(currentTile.getX(), currentTile.getY());
+
+            // Tries to interact
             tryInteraction();
+
+            // Adds a step to the score
             score.addStep();
         }
     }
 
+    /**
+     * Checks whether a player can move in a direction
+     *
+     * @param direction The direction to move in
+     * @return Returns whether a player can move in a direction
+     */
     private boolean canMove(Direction direction) {
         Tile neighbour = currentTile.getNeighbour(direction);
+        // Checks if the current tile has a neighbour in the direction and isn't a wall
         if (neighbour != null && neighbour instanceof Corridor) {
             Corridor corridor = (Corridor) neighbour;
             if (corridor.getInteractableObject() != null) {
                 InteractableObject interactableObject = corridor.getInteractableObject();
 
+                // Checks if the interactable object is a barricade and if the player has the right key to open it
                 if (interactableObject instanceof Barricade) {
                     if (key != null && ((Barricade) interactableObject).keyFits(key)) {
                         keyBarricade.getBottomBar().showNotification("You opened a barricade!", NotificationType.SUCCESS);
@@ -99,12 +139,17 @@ public class Player extends JComponent {
                 }
                 return false;
             } else {
+                // Return true if there is no interatable object (a.k.a empty corridor)
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * Tries to do the interaction with the current tile, so if the player is on
+     * a key then pick it up
+     */
     private void tryInteraction() {
         if (currentTile instanceof Corridor) {
             Corridor corridor = (Corridor) currentTile;
