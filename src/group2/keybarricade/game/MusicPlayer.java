@@ -5,7 +5,7 @@ import sun.audio.AudioStream;
 
 public class MusicPlayer {
 
-    private final String[] musicFiles = new String[]{"/sounds/wethands.wav"};
+    private final String[] musicFiles = new String[]{"/sounds/wethands.wav", "/sounds/SubwooferLulaby.wav"};
 
     public void startPlaying() {
         new Thread() {
