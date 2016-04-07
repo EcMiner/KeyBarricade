@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 public class HomeScreen extends JPanel {
 
-    private static final BufferedImage image = loadImage("/images/keybarricade.png");
+    private static final BufferedImage logoImage = loadImage("/images/keybarricade.png");
 
     private final KeyBarricade keyBarricade;
     private final JLabel logo;
@@ -42,8 +42,8 @@ public class HomeScreen extends JPanel {
     public void resizePanel(int frameWidth, int frameHeight) {
         setSize(frameWidth, frameHeight);
 
-        double scale = (double) (frameWidth - (frameWidth * .25)) / image.getWidth();
-        ImageIcon icon = new ImageIcon(ImageUtil.resize(image, scale));
+        double scale = (double) (frameWidth - (frameWidth * .25)) / logoImage.getWidth();
+        ImageIcon icon = new ImageIcon(ImageUtil.resize(logoImage, scale));
 
         logo.setBounds((int) (frameWidth * .125), 20, icon.getIconWidth(), icon.getIconHeight());
         logo.setIcon(icon);

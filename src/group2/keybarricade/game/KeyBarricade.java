@@ -15,7 +15,6 @@ public class KeyBarricade extends JFrame {
 
     public static void main(String[] args) {
         new KeyBarricade();
-        new MusicPlayer().startPlaying();
     }
 
     private final ArrayList<PlayField> playFields;
@@ -26,6 +25,7 @@ public class KeyBarricade extends JFrame {
 
     public KeyBarricade() {
         super("Key Barricade");
+        new MusicPlayer().startPlaying();
         this.playFields = new LevelLoader().loadLevels();
         this.bottomBar = new BottomBar();
         this.homeScreen = new HomeScreen(this);

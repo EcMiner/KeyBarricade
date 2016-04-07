@@ -23,7 +23,7 @@ public class Player extends JComponent {
     private Tile currentTile;
     private Key key;
     private KeyBarricade keyBarricade;
-    private Score score;
+    private final Score score;
 
     public Player(Tile startTile) {
         this.currentTile = startTile;
