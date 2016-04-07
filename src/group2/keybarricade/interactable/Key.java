@@ -1,5 +1,6 @@
 package group2.keybarricade.interactable;
 
+import group2.keybarricade.utilities.ImageUtil;
 import java.awt.image.BufferedImage;
 import static group2.keybarricade.utilities.ImageUtil.*;
 import java.awt.Font;
@@ -9,8 +10,11 @@ import java.awt.geom.Rectangle2D;
 public class Key extends InteractableObject {
 
     /**
-     * We made this public, to access the already loaded image in the BottomBar
-     * class
+     * The image of the Key. We made this public, to access the already loaded
+     * image in the BottomBar class
+     *
+     * @see BufferedImage
+     * @see ImageUtil
      */
     public static final BufferedImage image = loadImage("/images/key.png");
 
@@ -21,6 +25,12 @@ public class Key extends InteractableObject {
         this.pinCode = pinCode;
     }
 
+    /**
+     * We use this for unit testing
+     *
+     * @param obj The other Key object
+     * @return Returns whether the two keys are the same
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj != null && obj instanceof Key) {
@@ -30,10 +40,21 @@ public class Key extends InteractableObject {
         return false;
     }
 
+    /**
+     * Gets the pincode of the key
+     *
+     * @return Returns the pincode of the key
+     */
     public int getPinCode() {
         return pinCode;
     }
 
+    /**
+     * Paints the pin code as text on the tile
+     *
+     * @param g The Tile's graphics to paint on
+     * @param cubeSize The cube size of the tile
+     */
     @Override
     public void paint(Graphics g, int cubeSize) {
         super.paint(g, cubeSize);

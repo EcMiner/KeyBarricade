@@ -17,23 +17,25 @@ public class Score {
     }
 
     /**
-     * add one to steps
+     * Adds one to the total steps walked
      */
     public void addStep() {
         steps += 1;
     }
 
     /**
+     * Gets the amount of steps walked.
      *
-     * @return amount of steps.
+     * @return Returns amount of steps walked
      */
     public int getSteps() {
         return steps;
     }
 
     /**
+     * Get the total duration of time the player has been playing the level.
      *
-     * @return duration of the game in seconds.
+     * @return Returns duration of the game in seconds.
      */
     public long getDurationSeconds() {
         /*

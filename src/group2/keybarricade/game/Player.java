@@ -37,7 +37,7 @@ public class Player extends JComponent {
      * We use this for testing
      *
      * @param obj The other Player object
-     * @return Whether the two player objects are the same
+     * @return Returns whether the two player objects are the same
      */
     @Override
     public boolean equals(Object obj) {
@@ -54,6 +54,7 @@ public class Player extends JComponent {
      * Sets the image of the player to the direction it's looking at
      *
      * @param direction The direction to change
+     * @see Direction
      */
     public void setImage(Direction direction) {
         switch (direction) {
@@ -89,6 +90,7 @@ public class Player extends JComponent {
      * possible
      *
      * @param direction The direction to move in
+     * @see Direction
      */
     public void move(Direction direction) {
         setImage(direction);
@@ -156,26 +158,43 @@ public class Player extends JComponent {
             if (corridor.getInteractableObject() != null) {
                 InteractableObject interactableObject = corridor.getInteractableObject();
                 if (interactableObject instanceof Key) {
+                    // If the interactable object is a key, set the player's picked up key to the key you're standing on
                     this.key = (Key) interactableObject;
+
+                    // Update the bottom bor to show the pin code of the key you just picked up
                     keyBarricade.getBottomBar().setKey(this.key);
+
+                    // Remove the key from the corridor tile
                     corridor.removeInteractableObject();
                 } else if (interactableObject instanceof Barricade) {
+                    // Remove the barricade from the corridor tile. You don't need to check if the key's pin code match
+                    // Because you did that in Player#canMove(direction)
                     corridor.removeInteractableObject();
                 } else if (interactableObject instanceof EndField) {
                     if (keyBarricade != null && keyBarricade.getCurrentPlayField() != null) {
+                        // If the interactable object is an endfield, tell the playfield that the player just finished the level
                         keyBarricade.getCurrentPlayField().setFinished(true);
+
+                        // Checks whether the current play field is in the loaded playfields array
                         if (keyBarricade.getCurrentPlayField().getId() < keyBarricade.getPlayFields().size() - 1) {
+                            // Prompt the player's stats and ask them if they want to continue to the next level
                             int result = JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nNext level?", "Do you want to continue to the next level?", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.CANCEL_OPTION || result == JOptionPane.NO_OPTION) {
+                                // If they cancelled the pop-up or pressed the no button, return to the homescreen
                                 keyBarricade.showHomeScreen();
                             } else if (result == JOptionPane.YES_OPTION) {
+                                // If they clicked the yes button start the next level
                                 keyBarricade.start(keyBarricade.getCurrentPlayField().getId() + 1);
                             }
                         } else {
+                            // If the id isn't in the loaded playfields array, or is the last map in the array, then
+                            // prompt the player's stats, and ask if they want to play a new random level
                             int result = JOptionPane.showConfirmDialog(keyBarricade, "You completed this level in " + score.getSteps() + " steps and " + score.getDurationSeconds() + "s. \nNew random level?", "You completed the game!", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.CANCEL_OPTION || result == JOptionPane.NO_OPTION) {
+                                // If they cancel or click the no button, go back to the home screen
                                 keyBarricade.showHomeScreen();
                             } else if (result == JOptionPane.YES_OPTION) {
+                                // If they clicked the yes button, then generate and load a new random map on the screen
                                 keyBarricade.randomMap();
                             }
                         }
@@ -185,14 +204,32 @@ public class Player extends JComponent {
         }
     }
 
+    /**
+     * Paints the player's current image, with the right image size
+     *
+     * @param g The graphics to paint on
+     * @see Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         int cubeSize = getWidth();
+
+        // Resize the current image to fit into the tile
         BufferedImage resized = ImageUtil.resize(currentImage, cubeSize);
+
+        // Draw the image in the center of the tile
         g.drawImage(resized, (cubeSize - resized.getWidth()) / 2, (cubeSize - resized.getHeight()) / 2, null);
     }
 
+    /**
+     * Sets the player's KeyBarricade attribute to a KeyBarricade instance. This
+     * instance will be used for showing notifications and loading next/random
+     * levels
+     *
+     * @param keyBarricade The KeyBarricade instance
+     * @see KeyBarricade
+     */
     public void setKeyBarricade(KeyBarricade keyBarricade) {
         this.keyBarricade = keyBarricade;
     }

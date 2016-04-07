@@ -68,7 +68,7 @@ public class PlayField extends JPanel {
             Tile cloned = tile.clone();
             clonedTiles.add(cloned);
             // Check if the tile is the startTile, if so clone it so we can use it in the constructor
-            if (tile.getX() == this.startTile.getX() && tile.getY() == this.startTile.getY()) {
+            if (tile.getLocationX() == this.startTile.getLocationX() && tile.getLocationY() == this.startTile.getLocationY()) {
                 startTile = cloned;
             }
         }
